@@ -1,0 +1,20 @@
+import pandas as pd
+
+def creer_dataframe(data_TeamsRH,c1:list,l:list,condition):#name_table
+    if len(c1) != len(l):
+        return 'verifier c1 et c2'
+
+    else :
+        data={}
+        length=data_TeamsRH.shape[0]
+        for i,j in zip(l,c1) :
+            if type(i)==list :
+                data[j]=[condition[i[1]][k] for k in data_TeamsRH[i[0]] ]
+                
+            elif i=='':
+                data[j]=['' for _ in range(length)]
+            elif i in data_TeamsRH.columns:
+                data[j]=[k for k in data_TeamsRH[i]]
+            else:
+                data[j]=[i for _ in range(length)]
+        return pd.DataFrame(data)
