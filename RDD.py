@@ -5,8 +5,13 @@ import re
 from unidecode import unidecode
 from fuzzywuzzy import fuzz
 from pathlib import Path
+import subprocess
+
+# Installation de la dépendance openpyxl
+subprocess.call(['pip', 'install', 'openpyxl'])
 image_path = "logo.jpg"
 image = open(image_path, 'rb').read()
+
 st.markdown(
     """
     <style>
@@ -155,10 +160,6 @@ Code_PO_MA = {
 
 
 st.subheader('RDD', divider='rainbow')
-
-
-
-    
 
 
 if "visibility" not in st.session_state:
@@ -997,6 +998,13 @@ if uploaded_file:
                 S2HORCONTR.to_excel(writer, sheet_name='S2HORCONTR', index=False)
                 S2REMUNER.to_excel(writer, sheet_name='S2REMUNER', index=False)
                 S2ANALYT.to_excel(writer, sheet_name='S2ANALYT', index=False)
+                
+from pathlib import Path
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+css_file = current_dir / "main.css"
+with open(css_file) as f:
+        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 
 
           
