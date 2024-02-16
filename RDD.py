@@ -17,10 +17,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-css_file = current_dir / "main.css"
-with open(css_file) as f:
-        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 # Afficher l'image dans la barre latérale avec un slider
 with st.sidebar:
     st.title("Marchiche Globale Solution")
@@ -999,7 +996,10 @@ if uploaded_file:
                 S2ANALYT.to_excel(writer, sheet_name='S2ANALYT', index=False)
 
 
-          
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+css_file = current_dir / "main.css"
+with open(css_file) as f:
+        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)          
 # Charger une image (remplacez "chemin_vers_votre_image.jpg" par le chemin de votre image)
 
 
