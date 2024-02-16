@@ -980,7 +980,7 @@ if uploaded_file:
                 #if t != '':
            
         
-            with pd.ExcelWriter(p, engine='openpyxl') as writer:
+            with pd.ExcelWriter(p) as writer:
                 # Write each DataFrame to a separate sheet
                 S1IDE.to_excel(writer, sheet_name='S1IDE', index=False)
                 S1ADR.to_excel(writer, sheet_name='S1ADR', index=False)
