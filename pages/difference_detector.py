@@ -1,6 +1,17 @@
 import numpy as np
 import pandas as pd 
-import streamlit as st 
+import streamlit as st
+from pathlib import Path
+import os
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+#chemin_actuel = current_dir / "main.css"
+
+css_file = os.path.abspath(os.path.join(current_dir, os.pardir, "main.css"))
+
+with open(css_file) as f:
+        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+# Afficher l'image dans la barre latérale avec un slider
+
 st.subheader('difference detector', divider='rainbow')
 image='logo.jpg'
 with st.sidebar:
@@ -9,6 +20,7 @@ with st.sidebar:
 
     # Afficher l'image sélectionnée
     st.image(image, caption='Logo Marchiche Globale Solution', use_column_width=True)
+
 uploaded_file = st.file_uploader("Uploader un fichier CSV", type=['xlsx'])
 uploaded_file1 = st.file_uploader("Uploader un fichier CSV", type=['csv'])
 if uploaded_file is not None :

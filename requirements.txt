@@ -3,4 +3,8 @@ numpy==1.24.3
 streamlit==1.29.0
 unidecode==1.2.0
 fuzzywuzzy==0.18.0
+<<<<<<< HEAD
 subprocess==0.7.0
+=======
+openpyxl==3.0.10
+>>>>>>> 0e32031c595f18239b11ba0f2235b6fdad8f5cad

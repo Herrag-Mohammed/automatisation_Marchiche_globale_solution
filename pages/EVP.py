@@ -1,6 +1,9 @@
 import pandas as pd 
 import numpy as np 
 import streamlit as st
+import os
+from pathlib import Path
+
 image_path = "logo.jpg"
 image = open(image_path, 'rb').read()
 st.markdown(
@@ -13,7 +16,10 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-# Afficher l'image dans la barre latérale avec un slider
+
+
+
+
 with st.sidebar:
     st.title("Marchiche Globale Solution")
 
@@ -189,4 +195,11 @@ if uploaded_file:
         if t != '':
             if st.button("Download data as excel", type="primary"):
                 convert_df(data,t)
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+#chemin_actuel = current_dir / "main.css"
+
+css_file = os.path.abspath(os.path.join(current_dir, os.pardir, "main.css"))
+with open(css_file) as f:
+        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+# Afficher l'image dans la barre latérale avec un slider
 
