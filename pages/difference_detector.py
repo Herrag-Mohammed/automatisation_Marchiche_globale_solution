@@ -11,8 +11,7 @@ css_file = os.path.abspath(os.path.join(current_dir, os.pardir, "main.css"))
 with open(css_file) as f:
         st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 # Afficher l'image dans la barre latérale avec un slider
-with st.sidebar:
-    st.title("Marchiche Globale Solution")
+
 st.subheader('difference detector', divider='rainbow')
 image='logo.jpg'
 with st.sidebar:
